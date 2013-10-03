@@ -1,2 +1,2 @@
-javascript-events-class
+Javascript Events Class
 =======================
