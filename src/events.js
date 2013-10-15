@@ -24,6 +24,7 @@ function Events(){
     
     return{
         /**
+         * @memberOf Events
          * @param {string} event
          * @param {object} [data={}]
          */ 
@@ -31,6 +32,7 @@ function Events(){
             
         },
         /**
+         * @memberOf Events
          * @param {string} event
          * @param {function}
          */ 
@@ -38,6 +40,7 @@ function Events(){
             
         },
         /**
+         * @memberOf Events
          * @param {(function|array)} handler -The array returned by subscribe or the function given previously to it. 
          */ 
         unsubscribe:function(handler){
