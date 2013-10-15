@@ -5,7 +5,8 @@ module.exports = function (grunt) {
             pkg: grunt.file.readJSON('package.json'),
             clean: {
                 docs: ['docs'],
-                coverage: ['coverage']
+                coverage: ['coverage'],
+                coverageLcov: ['coverage-lcov']
             },
             uglify: {
                 options: {
@@ -82,7 +83,7 @@ module.exports = function (grunt) {
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', ['clean:docs', 'uglify', 'jsdoc']);
-    grunt.registerTask('test:continuous', ['jshint', 'karma:continuous', 'coveralls']);
+    grunt.registerTask('test:continuous', ['clean:coverageLcov', 'jshint', 'karma:continuous', 'coveralls']);
     grunt.registerTask('test:dev', ['clean:coverage', 'jshint', 'karma:dev']);
 
 }
