@@ -39,6 +39,9 @@ module.exports = function (grunt) {
                         destination: 'docs'
                     }
                 }
+            },
+            jshint: {
+                all: ["src/*.js"]
             }
         }
     )
@@ -50,9 +53,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', ['clean', 'uglify', 'jsdoc']);
+    grunt.registerTask('test', [ 'jshint']);
 
 }
 ;
