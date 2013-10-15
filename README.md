@@ -1,2 +1,1 @@
-Javascript Events Class
-=======================
+#Javascript Events Class [![Build Status](https://travis-ci.org/mednix/javascript-events-class.png?branch=master)](https://travis-ci.org/mednix/javascript-events-class)
