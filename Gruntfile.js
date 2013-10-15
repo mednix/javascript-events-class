@@ -41,8 +41,17 @@ module.exports = function (grunt) {
                 }
             },
             jshint: {
-                all: ["src/*.js"]
+                all: ["src/*.js", "tests/*.js"]
+            },
+            karma: {
+                options: {
+                    configFile: 'karma.conf.js',
+                },
+                continuous: {
+                    browsers: ["PhantomJS"]
+                }
             }
+
         }
     );
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -51,10 +60,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-karma');
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', ['clean', 'uglify', 'jsdoc']);
-    grunt.registerTask('test', [ 'jshint']);
+    grunt.registerTask('test', [ 'jshint', 'karma:continuous']);
 
 }
 ;
