@@ -5,8 +5,7 @@ module.exports = function (grunt) {
             pkg: grunt.file.readJSON('package.json'),
             clean: {
                 docs: ['docs'],
-                coverage: ['coverage'],
-                coverageLcov: ['coverage-lcov']
+                coverage: ['coverage']
             },
             uglify: {
                 options: {
@@ -53,12 +52,7 @@ module.exports = function (grunt) {
                 },
                 continuous: {
                     browsers: ["Firefox"],
-                    singleRun: true,
-                    reporters: ['dots', 'coverage'],
-                    coverageReporter: {
-                        type: "lcov",
-                        dir: "coverage-lcov/"
-                    }
+                    singleRun: true
                 },
                 dev: {
                     singleRun: true
@@ -67,7 +61,7 @@ module.exports = function (grunt) {
 
             coveralls: {
                 options: {
-                    coverage_dir: 'coverage-lcov'
+                    coverage_dir: 'coverage'
                 }
             }
         }
@@ -83,7 +77,7 @@ module.exports = function (grunt) {
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', ['clean:docs', 'uglify', 'jsdoc']);
-    grunt.registerTask('test:continuous', ['clean:coverageLcov', 'jshint', 'karma:continuous', 'coveralls']);
+    grunt.registerTask('test:continuous', ['clean:coverage', 'jshint', 'karma:continuous', 'coveralls']);
     grunt.registerTask('test:dev', ['clean:coverage', 'jshint', 'karma:dev']);
 
 }
