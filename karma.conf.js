@@ -3,6 +3,7 @@ module.exports = function (config) {
         frameworks: ['mocha'],
 
         files: [
+            'src/*.js',
             'tests/*.js'
         ],
         port: 5000,
