@@ -14,6 +14,9 @@ module.exports = function (config) {
         runnerPort: 9999,
         singleRun: false,
         browsers: ['PhantomJS'],
-        reporters: ['dots', 'coverage']
+        reporters: ['dots', 'coverage'],
+        plugins: [
+            'karma-coverage',
+        ]
     });
 };

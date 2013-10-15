@@ -53,13 +53,22 @@ module.exports = function (grunt) {
                 continuous: {
                     browsers: ["Firefox"],
                     singleRun: true,
-                    reporters: ['dots']
+                    reporters: ['dots', 'coverage'],
+                    coverageReporter: {
+                        type: "lcov",
+                        dir: "coverage/"
+                    }
                 },
                 dev: {
                     singleRun: true
                 }
-            }
+            },
 
+            coveralls: {
+                options: {
+                    coverage_dir: 'coverage'
+                }
+            }
         }
     );
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -69,6 +78,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-karma-coveralls');
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', ['clean:docs', 'uglify', 'jsdoc']);
