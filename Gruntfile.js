@@ -3,7 +3,10 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
-            clean: ['docs'],
+            clean: {
+                docs: ['docs'],
+                coverage: ['coverage']
+            },
             uglify: {
                 options: {
                     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -49,6 +52,10 @@ module.exports = function (grunt) {
                 },
                 continuous: {
                     browsers: ["Firefox"],
+                    singleRun: true,
+                    reporters: ['dots']
+                },
+                dev: {
                     singleRun: true
                 }
             }
@@ -64,8 +71,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
-    grunt.registerTask('build', ['clean', 'uglify', 'jsdoc']);
-    grunt.registerTask('test', [ 'jshint', 'karma:continuous']);
+    grunt.registerTask('build', ['clean:docs', 'uglify', 'jsdoc']);
+    grunt.registerTask('test:continuous', ['jshint', 'karma:continuous']);
+    grunt.registerTask('test:dev', ['clean:coverage', 'jshint', 'karma:dev']);
 
 }
 ;

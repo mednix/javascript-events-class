@@ -1,7 +1,16 @@
-describe("A", function () {
-    describe("a1", function () {
-        it("should pass", function () {
+var expect = chai.expect;
+var events = null;
+beforeEach(function () {
+    events = Events();
+});
+afterEach(function () {
+    events = null;
+});
+describe("Events", function () {
 
+    describe("#publish", function () {
+        it("should fires event", function () {
+            expect(events).to.be.an('object');
         });
     });
     describe("a2", function () {
