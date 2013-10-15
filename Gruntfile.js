@@ -66,7 +66,7 @@ module.exports = function (grunt) {
 
             coveralls: {
                 options: {
-                    coverage_dir: 'coverage'
+                    coverage_dir: 'coverage-lcov'
                 }
             }
         }
