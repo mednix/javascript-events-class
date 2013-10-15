@@ -56,7 +56,7 @@ module.exports = function (grunt) {
                     reporters: ['dots', 'coverage'],
                     coverageReporter: {
                         type: "lcov",
-                        dir: "coverage/"
+                        dir: "coverage-lcov/"
                     }
                 },
                 dev: {
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
 // Default task(s).
     grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', ['clean:docs', 'uglify', 'jsdoc']);
-    grunt.registerTask('test:continuous', ['jshint', 'karma:continuous', 'coveralls']);
+    grunt.registerTask('test:continuous', ['jshint', 'karma:continuous']);
     grunt.registerTask('test:dev', ['clean:coverage', 'jshint', 'karma:dev']);
 
 }
