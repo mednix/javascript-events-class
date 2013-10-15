@@ -8,8 +8,7 @@ module.exports = function (config) {
         ],
         port: 5000,
         runnerPort: 9999,
-        singleRun: true,
-        browsers: ['PhantomJS'],
-        autoWatch: true
+        singleRun: false,
+        browsers: ['PhantomJS']
     });
 };

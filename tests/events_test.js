@@ -18,7 +18,7 @@ describe("B", function () {
         });
     });
     describe("b2", function () {
-        it("should pass", function () {
+        it("should pass yes", function () {
 
         });
     });
